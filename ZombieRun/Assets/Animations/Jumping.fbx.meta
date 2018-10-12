@@ -127,7 +127,7 @@ ModelImporter:
     2100002: emireh_body_material
     4300000: mremireh_shoe
     4300002: mremireh_body
-    7400000: mixamo.com
+    7400000: jump
     9500000: //RootNode
     13700000: mremireh_body
     13700002: mremireh_shoe
@@ -145,13 +145,7 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
-      copied configuration does not match position in animation file:\n\t'LeftUpLeg'
-      : position error = 117.225601 mm\n\t'LeftLeg' : position error = 293.870728
-      mm\n\t'LeftFoot' : position error = 440.008118 mm\n\t'LeftToeBase' : position
-      error = 259.623322 mm\n\t'RightUpLeg' : position error = 116.746353 mm\n\t'RightLeg'
-      : position error = 293.870758 mm\n\t'RightFoot' : position error = 440.008148
-      mm\n\t'RightToeBase' : position error = 259.623322 mm\n"
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -165,7 +159,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: jump
+      takeName: mixamo.com
+      firstFrame: 0
+      lastFrame: 37
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

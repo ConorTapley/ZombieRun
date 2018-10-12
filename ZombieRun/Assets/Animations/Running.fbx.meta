@@ -127,7 +127,7 @@ ModelImporter:
     2100002: emireh_body_material
     4300000: mremireh_shoe
     4300002: mremireh_body
-    7400000: mixamo.com
+    7400000: run
     9500000: //RootNode
     13700000: mremireh_body
     13700002: mremireh_shoe
@@ -160,7 +160,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: mixamo.com
+      name: run
       takeName: mixamo.com
       firstFrame: 0
       lastFrame: 19
@@ -170,7 +170,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 1
