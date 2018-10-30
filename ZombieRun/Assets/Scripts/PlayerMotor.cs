@@ -13,7 +13,9 @@ public class PlayerMotor : MonoBehaviour {
     public float jumpPower;
     private float m_verticalVelocity;
     public float gravity;
-    
+
+    private float m_animationDuration = 2.0f;
+
 
     void Start () {
         m_controller = GetComponent<CharacterController>();
@@ -23,14 +25,21 @@ public class PlayerMotor : MonoBehaviour {
 
 	
 	void Update () {
+
+        if(Time.time < m_animationDuration)
+        {
+            m_controller.Move(Vector3.forward * speed * Time.deltaTime);
+            return;
+        }
+
         m_moveVector = Vector3.zero;
-        
 
         if(m_controller.isGrounded)
         {
             m_verticalVelocity = -0.5f;
 
-            if(Input.GetKey(KeyCode.W))
+            //jump
+            if(Input.GetKey(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 ainm.SetBool("Jump", true);
                 m_verticalVelocity += jumpPower;

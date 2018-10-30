@@ -8,6 +8,10 @@ public class CameraFollow : MonoBehaviour {
     private Vector3 m_startOffset;
     private Vector3 m_moveVector;
 
+    private float m_transition = 0.0f;
+    private float m_animationDuration = 2.0f;
+    private Vector3 m_animationOffSet = new Vector3(0, 60, 70);
+
     void Start()
     {
         m_lookAt = GameObject.FindGameObjectWithTag("Player").transform;
@@ -25,6 +29,16 @@ public class CameraFollow : MonoBehaviour {
         //Y
         m_moveVector.y = Mathf.Clamp(m_moveVector.y, 60, 70);
 
-        transform.position = m_moveVector;
+        if(m_transition > 1.0f)
+        {
+            transform.position = m_moveVector;
+        }
+        else
+        {
+            //Start Animation
+            transform.position = Vector3.Lerp(m_moveVector + m_animationOffSet, m_moveVector, m_transition);
+            m_transition += Time.deltaTime * 1 / m_animationDuration;
+        }
+        
     }
 }
