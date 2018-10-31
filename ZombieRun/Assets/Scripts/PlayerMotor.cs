@@ -8,6 +8,8 @@ public class PlayerMotor : MonoBehaviour {
     private CharacterController m_controller;
     private Vector3 m_moveVector;
     private Transform m_transform;
+    private CharacterController m_charCon;
+    private bool crawl = false;
 
     public float speed;
     public float jumpPower;
@@ -20,6 +22,7 @@ public class PlayerMotor : MonoBehaviour {
     void Start () {
         m_controller = GetComponent<CharacterController>();
         ainm = GetComponent<Animator>();
+        m_charCon = GetComponent<CharacterController>();
 	}
 	
 
@@ -39,12 +42,34 @@ public class PlayerMotor : MonoBehaviour {
             m_verticalVelocity = -0.5f;
 
             //jump
-            if(Input.GetKey(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            if(Input.GetKey(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
             {
                 ainm.SetBool("Jump", true);
                 m_verticalVelocity += jumpPower;
                 Debug.Log("Jump");
             }
+            else
+                ainm.SetBool("Jump", false);
+
+
+            //Crawl
+            if (Input.GetKey(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                Crawl();
+            }
+            else
+            {
+                ainm.SetBool("Crawl", false);
+                crawl = false;
+            }
+
+            if (crawl)
+            {
+                m_charCon.height -= 20;
+            }
+            else m_charCon.height = 120;
+
+
         }
         else
         {
@@ -65,4 +90,21 @@ public class PlayerMotor : MonoBehaviour {
 
         m_controller.Move(m_moveVector * Time.deltaTime);
 	}
+
+    public void SetSpeed(float modifier)
+    {
+        speed = 100.0f + modifier;
+    }
+
+
+
+    void Crawl()
+    {
+        ainm.SetBool("Crawl", true);
+        Debug.Log("Crawl");
+
+        m_charCon.height -= 100;
+
+        crawl = true;
+    }
 }

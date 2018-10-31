@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 65321933952822924}
   m_Layer: 0
   m_Name: Box
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 65943713812085592}
   m_Layer: 0
   m_Name: Barrel (1)
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 65040847308607712}
   m_Layer: 0
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -806,8 +806,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.6505068, z: 1.7060331}
-  m_Center: {x: -2.5099265e-18, y: 0.31286994, z: 0.00096740725}
+  m_Size: {x: 1.0625411, y: 0.38072148, z: 3.1509976}
+  m_Center: {x: 0.03127089, y: 0.17797725, z: 0.7234518}
 --- !u!65 &65943713812085592
 BoxCollider:
   m_ObjectHideFlags: 1
