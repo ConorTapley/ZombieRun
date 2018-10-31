@@ -96,8 +96,7 @@ public class PlayerMotor : MonoBehaviour {
         speed = 100.0f + modifier;
     }
 
-
-
+    
     void Crawl()
     {
         ainm.SetBool("Crawl", true);
@@ -107,4 +106,25 @@ public class PlayerMotor : MonoBehaviour {
 
         crawl = true;
     }
+
+
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(hit.collider.CompareTag("Death"))
+        {
+            Death();
+        }
+
+        if(hit.point.z > transform.position.z + m_controller.radius)
+        {
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+        Debug.Log("Dead");
+    }
+
 }

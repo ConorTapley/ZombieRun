@@ -92,9 +92,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4022517260478120}
   - component: {fileID: 95035843992188720}
+  - component: {fileID: 65293364620600640}
   m_Layer: 0
   m_Name: Toolkit
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1009,6 +1010,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 2e43571a8a2e94c4096a200ee1e67cc0, type: 3}
+--- !u!65 &65293364620600640
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1401060328307252}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9389635, y: 2.5912828, z: 1}
+  m_Center: {x: 0.03051866, y: 1.2628086, z: 0}
 --- !u!65 &65383382814279798
 BoxCollider:
   m_ObjectHideFlags: 1

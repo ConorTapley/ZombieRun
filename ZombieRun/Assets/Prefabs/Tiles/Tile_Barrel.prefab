@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 65172366322785404}
   m_Layer: 0
   m_Name: Barrel (1)
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -388,8 +388,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0356115, z: 0.90446603}
-  m_Center: {x: 0, y: 0.50045943, z: -0.002725363}
+  m_Size: {x: 0.95160335, y: 1.0356115, z: 0.90446615}
+  m_Center: {x: -0.02419858, y: 0.50045943, z: -0.0027253788}
 --- !u!65 &65574726535612156
 BoxCollider:
   m_ObjectHideFlags: 1

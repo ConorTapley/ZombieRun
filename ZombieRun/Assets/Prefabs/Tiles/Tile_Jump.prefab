@@ -70,7 +70,6 @@ GameObject:
   - component: {fileID: 4498860672405262}
   - component: {fileID: 33927297917149044}
   - component: {fileID: 23950446710843892}
-  - component: {fileID: 64213088272629804}
   m_Layer: 0
   m_Name: Spiked Mace 2
   m_TagString: Untagged
@@ -732,20 +731,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 2e43571a8a2e94c4096a200ee1e67cc0, type: 3}
---- !u!64 &64213088272629804
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1159229987021630}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300012, guid: 2e43571a8a2e94c4096a200ee1e67cc0, type: 3}
 --- !u!64 &64701598362508206
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -782,8 +767,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0356115, z: 0.90446603}
-  m_Center: {x: 0, y: 0.50045943, z: -0.002725363}
+  m_Size: {x: 0.8324754, y: 1.0356115, z: 0.90446615}
+  m_Center: {x: 0.083763495, y: 0.50045943, z: -0.0027253788}
 --- !u!65 &65161971370325452
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -818,5 +803,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0356115, z: 0.90446603}
-  m_Center: {x: 0, y: 0.50045943, z: -0.002725363}
+  m_Size: {x: 0.9269331, y: 1.0356115, z: 0.90446615}
+  m_Center: {x: -0.036533993, y: 0.50045943, z: -0.0027253788}
