@@ -11,6 +11,7 @@ public class score : MonoBehaviour {
     private int m_difficultyLevel = 1;
     private int m_maxDifficultyLevel = 10;
     private int m_scoreToNextLevel = 10;
+    private bool m_isDead = false;
 
     public TextMeshProUGUI scoreText;
 	
@@ -20,6 +21,9 @@ public class score : MonoBehaviour {
 	
 	
 	void Update () {
+
+        if (m_isDead)
+            return;
 
         if(m_score >= m_scoreToNextLevel)
         {
@@ -40,5 +44,11 @@ public class score : MonoBehaviour {
         m_difficultyLevel++;
 
         GetComponent<PlayerMotor>().SetSpeed(m_difficultyLevel * 20);
+    }
+
+
+    public void OnDeath()
+    {
+        m_isDead = true;
     }
 }
