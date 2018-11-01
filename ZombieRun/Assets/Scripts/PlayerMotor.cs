@@ -53,7 +53,7 @@ public class PlayerMotor : MonoBehaviour {
             {
                 ainm.SetBool("Jump", true);
                 m_verticalVelocity += jumpPower;
-                Debug.Log("Jump");
+                //Debug.Log("Jump");
             }
             else
                 ainm.SetBool("Jump", false);
@@ -107,7 +107,7 @@ public class PlayerMotor : MonoBehaviour {
     void Crawl()
     {
         ainm.SetBool("Crawl", true);
-        Debug.Log("Crawl");
+        //Debug.Log("Crawl");
 
         m_charCon.height -= 100;
 
@@ -131,7 +131,7 @@ public class PlayerMotor : MonoBehaviour {
 
     private void Death()
     {
-        Debug.Log("Dead");
+        //Debug.Log("Dead");
         m_isDead = true;
 
         GetComponent<score>().OnDeath();    
