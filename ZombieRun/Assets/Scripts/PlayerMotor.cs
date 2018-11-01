@@ -21,13 +21,20 @@ public class PlayerMotor : MonoBehaviour {
     private bool m_isDead = false;
     private float m_startTime;
 
+    public AudioClip jump;
+    public AudioClip slide;
+    public AudioClip die;
+    private AudioSource m_audioSource;
+
 
     void Start () {
         m_controller = GetComponent<CharacterController>();
         ainm = GetComponent<Animator>();
         m_charCon = GetComponent<CharacterController>();
         m_startTime = Time.time;
-	}
+        m_audioSource = GetComponent<AudioSource>();
+
+    }
 	
 
 	
@@ -53,6 +60,7 @@ public class PlayerMotor : MonoBehaviour {
             {
                 ainm.SetBool("Jump", true);
                 m_verticalVelocity += jumpPower;
+                m_audioSource.PlayOneShot(jump, 1);
                 //Debug.Log("Jump");
             }
             else
@@ -63,6 +71,7 @@ public class PlayerMotor : MonoBehaviour {
             if (Input.GetKey(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 Crawl();
+                m_audioSource.PlayOneShot(slide, 1);
             }
             else
             {
@@ -132,6 +141,7 @@ public class PlayerMotor : MonoBehaviour {
     private void Death()
     {
         //Debug.Log("Dead");
+        m_audioSource.PlayOneShot(die, 1);
         m_isDead = true;
 
         GetComponent<score>().OnDeath();    
