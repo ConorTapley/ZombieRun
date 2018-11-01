@@ -6,18 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
-	
-	void Start () {
-		
+    public Text highScoreText;
+
+    void Start () {
+        highScoreText.text = "Highscore : " + ((int)PlayerPrefs.GetFloat("Highscore")).ToString();
 	}
 	
-	
-	void Update () {
-		
-	}
 
     public void ToGame()
     {
         SceneManager.LoadScene("Game");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
