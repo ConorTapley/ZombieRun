@@ -14,6 +14,7 @@ public class score : MonoBehaviour {
     private bool m_isDead = false;
 
     public TextMeshProUGUI scoreText;
+    public DeathMenu deathMenu;
 	
 	void Start () {
         
@@ -50,5 +51,6 @@ public class score : MonoBehaviour {
     public void OnDeath()
     {
         m_isDead = true;
+        deathMenu.ToggleEndMenu(m_score);
     }
 }

@@ -19,12 +19,14 @@ public class PlayerMotor : MonoBehaviour {
     private float m_animationDuration = 2.0f;
 
     private bool m_isDead = false;
+    private float m_startTime;
 
 
     void Start () {
         m_controller = GetComponent<CharacterController>();
         ainm = GetComponent<Animator>();
         m_charCon = GetComponent<CharacterController>();
+        m_startTime = Time.time;
 	}
 	
 
@@ -34,7 +36,7 @@ public class PlayerMotor : MonoBehaviour {
         if (m_isDead)
             return;
 
-        if(Time.time < m_animationDuration)
+        if(Time.time - m_startTime < m_animationDuration)
         {
             m_controller.Move(Vector3.forward * speed * Time.deltaTime);
             return;
@@ -132,7 +134,7 @@ public class PlayerMotor : MonoBehaviour {
         Debug.Log("Dead");
         m_isDead = true;
 
-        GetComponent<score>().OnDeath();
+        GetComponent<score>().OnDeath();    
     }
 
 }
