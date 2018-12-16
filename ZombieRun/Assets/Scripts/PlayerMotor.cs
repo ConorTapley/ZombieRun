@@ -15,6 +15,7 @@ public class PlayerMotor : MonoBehaviour {
     public float jumpPower;
     private float m_verticalVelocity;
     public float gravity;
+    private bool m_grounded;
 
     private float m_animationDuration = 2.0f;
 
@@ -51,7 +52,8 @@ public class PlayerMotor : MonoBehaviour {
 
         m_moveVector = Vector3.zero;
 
-        if(m_controller.isGrounded)
+        //if(m_controller.isGrounded)
+        if(m_grounded)
         {
             m_verticalVelocity = -0.5f;
 
@@ -106,6 +108,22 @@ public class PlayerMotor : MonoBehaviour {
 
         m_controller.Move(m_moveVector * Time.deltaTime);
 	}
+
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Tile"))
+        {
+            m_grounded = true;
+            Debug.Log("Grounded!!");
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        m_grounded = false;
+        Debug.Log("NOT GROUNDED");
+    }
+
 
     public void SetSpeed(float modifier)
     {

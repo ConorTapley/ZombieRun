@@ -35,9 +35,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4540636583599376}
+  - component: {fileID: 65174140324700710}
   m_Layer: 0
   m_Name: Tile_Jump
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -867,6 +868,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65174140324700710
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1062202071213726}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 87.580734, y: 15.343456, z: 344.27847}
+  m_Center: {x: 2.2956543, y: -1.1649609, z: 162.81532}
 --- !u!65 &65321933952822924
 BoxCollider:
   m_ObjectHideFlags: 1
