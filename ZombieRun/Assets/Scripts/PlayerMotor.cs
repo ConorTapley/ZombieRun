@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerMotor : MonoBehaviour {
 
+    public float rollingTime = 1f;
+    public float rollingTimer;
+
     private Animator ainm;
     private CharacterController m_controller;
     private Vector3 m_moveVector;
     private Transform m_transform;
     private CharacterController m_charCon;
-    private bool crawl = false;
+    private bool roll = false;
 
     public float forwardSpeed;
     public float horizontalSpeed;
@@ -17,8 +20,6 @@ public class PlayerMotor : MonoBehaviour {
     private float m_verticalVelocity;
     public float gravity;
     private bool m_grounded;
-    private float m_crawlTimer = 0f;
-    public float crawltime = 1f;
 
     private float m_animationDuration = 2.0f;
 
@@ -44,7 +45,24 @@ public class PlayerMotor : MonoBehaviour {
 	
 	void Update () {
 
-        Debug.Log(crawl);
+        //rolling timer
+        Debug.Log(roll);
+
+        if (roll && rollingTimer > 0)
+        {
+            rollingTimer -= Time.deltaTime;
+        }
+        ///making sure the timer doesnt go below 0
+        if (rollingTimer <= 0)
+        {
+            rollingTimer = 0;
+            roll = false;
+        }
+
+        
+
+
+
 
         if (m_isDead)
             return;
@@ -67,7 +85,7 @@ public class PlayerMotor : MonoBehaviour {
             {
                 ainm.SetBool("Jump", true);
                 m_verticalVelocity += jumpPower;
-                m_audioSource.PlayOneShot(jump, 1);
+                //m_audioSource.PlayOneShot(jump, 1);
                 //Debug.Log("Jump");
             }
             else
@@ -75,31 +93,19 @@ public class PlayerMotor : MonoBehaviour {
 
 
             //Crawl
-            if (Input.GetKey(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
-                crawl = true;
+                //reset the timer
+                rollingTimer += rollingTime;
+                roll = true;
+
                 Crawl();
-                m_audioSource.PlayOneShot(slide, 1);
+                //m_audioSource.PlayOneShot(slide, 1);
             }
             else
             {
                 ainm.SetBool("Crawl", false);
-                crawl = false;
             }
-            /////crawl timer/////
-            /*
-            if (crawl)
-            {
-                m_crawlTimer = crawltime;
-                m_crawlTimer -= Time.deltaTime;
-
-                ///when time is up
-                if(m_crawlTimer <= 0)
-                {
-                    crawl = false;
-                }
-            }
-            */
 
         }
         else
@@ -140,7 +146,7 @@ public class PlayerMotor : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         ///////if the player is not sliding and hits the sword then die////////////
-        if(other.CompareTag("Slide") && !crawl)
+        if(other.CompareTag("Slide") && !roll)
         {
             Death();
         }
