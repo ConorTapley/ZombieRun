@@ -11,7 +11,8 @@ public class PlayerMotor : MonoBehaviour {
     private CharacterController m_charCon;
     private bool crawl = false;
 
-    public float speed;
+    public float forwardSpeed;
+    public float horizontalSpeed;
     public float jumpPower;
     private float m_verticalVelocity;
     public float gravity;
@@ -50,7 +51,7 @@ public class PlayerMotor : MonoBehaviour {
 
         if(Time.time - m_startTime < m_animationDuration)
         {
-            m_controller.Move(Vector3.forward * speed * Time.deltaTime);
+            m_controller.Move(Vector3.forward * forwardSpeed * Time.deltaTime);
             return;
         }
 
@@ -109,13 +110,13 @@ public class PlayerMotor : MonoBehaviour {
 
 
         //X Left Right
-        m_moveVector.x = Input.GetAxisRaw("Horizontal") * speed;
+        m_moveVector.x = Input.GetAxisRaw("Horizontal") * horizontalSpeed;
 
         //Y Up Down
         m_moveVector.y = m_verticalVelocity;
 
         //Z Forward Backward  
-        m_moveVector.z = speed;
+        m_moveVector.z = forwardSpeed;
 
 
         m_controller.Move(m_moveVector * Time.deltaTime);
@@ -148,7 +149,7 @@ public class PlayerMotor : MonoBehaviour {
 
     public void SetSpeed(float modifier)
     {
-        speed = 100.0f + modifier;
+        forwardSpeed = 100.0f + modifier;
     }
 
     
