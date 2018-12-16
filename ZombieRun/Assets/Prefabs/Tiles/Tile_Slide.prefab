@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 65157214426773286}
   m_Layer: 0
   m_Name: Basic Long Sword
-  m_TagString: Death
+  m_TagString: Slide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -721,11 +721,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1969041547557414}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 5.1132407, z: 1.4039495}
-  m_Center: {x: -0.0000002537397, y: 0.9039011, z: 0.02220567}
+  m_Size: {x: 0.28685275, y: 5.1132407, z: 2.818925}
+  m_Center: {x: 0.16144356, y: 0.9039011, z: -0.6852803}
 --- !u!65 &65251673980187910
 BoxCollider:
   m_ObjectHideFlags: 1

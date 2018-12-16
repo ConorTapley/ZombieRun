@@ -16,6 +16,8 @@ public class PlayerMotor : MonoBehaviour {
     private float m_verticalVelocity;
     public float gravity;
     private bool m_grounded;
+    private float m_crawlTimer = 0f;
+    public float crawltime = 1f;
 
     private float m_animationDuration = 2.0f;
 
@@ -40,6 +42,8 @@ public class PlayerMotor : MonoBehaviour {
 
 	
 	void Update () {
+
+        Debug.Log(crawl);
 
         if (m_isDead)
             return;
@@ -72,6 +76,7 @@ public class PlayerMotor : MonoBehaviour {
             //Crawl
             if (Input.GetKey(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
+                crawl = true;
                 Crawl();
                 m_audioSource.PlayOneShot(slide, 1);
             }
@@ -80,13 +85,20 @@ public class PlayerMotor : MonoBehaviour {
                 ainm.SetBool("Crawl", false);
                 crawl = false;
             }
-
+            /////crawl timer/////
+            /*
             if (crawl)
             {
-                m_charCon.height -= 20;
-            }
-            else m_charCon.height = 120;
+                m_crawlTimer = crawltime;
+                m_crawlTimer -= Time.deltaTime;
 
+                ///when time is up
+                if(m_crawlTimer <= 0)
+                {
+                    crawl = false;
+                }
+            }
+            */
 
         }
         else
@@ -109,19 +121,28 @@ public class PlayerMotor : MonoBehaviour {
         m_controller.Move(m_moveVector * Time.deltaTime);
 	}
 
-
+    //////////Check if player is grounded/////////////
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Tile"))
         {
             m_grounded = true;
-            Debug.Log("Grounded!!");
+            //Debug.Log("Grounded!!");
         }
     }
+    //////////check if player is not grounded/////////
     private void OnTriggerExit(Collider other)
     {
         m_grounded = false;
-        Debug.Log("NOT GROUNDED");
+        //Debug.Log("NOT GROUNDED");
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        ///////if the player is not sliding and hits the sword then die////////////
+        if(other.CompareTag("Slide") && !crawl)
+        {
+            Death();
+        }
     }
 
 
@@ -134,11 +155,6 @@ public class PlayerMotor : MonoBehaviour {
     void Crawl()
     {
         ainm.SetBool("Crawl", true);
-        //Debug.Log("Crawl");
-
-        m_charCon.height -= 100;
-
-        crawl = true;
     }
 
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Death
   - Tile
+  - Slide
   layers:
   - Default
   - TransparentFX
