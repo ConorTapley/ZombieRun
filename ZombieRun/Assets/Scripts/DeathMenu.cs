@@ -14,7 +14,7 @@ public class DeathMenu : MonoBehaviour {
     private float m_transition = 0.0f; 
 
     void Start () {
-        gameObject.SetActive(false);
+        gameObject.SetActive(false); ////death menu turned off by default
 	}
 	
 	
@@ -22,24 +22,24 @@ public class DeathMenu : MonoBehaviour {
         if (!isShown)
             return;
 
-        m_transition += Time.deltaTime;
-        backgroundImg.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, m_transition);
+        m_transition += Time.deltaTime; // transition = fps
+        backgroundImg.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, m_transition); // make the menu fade in by the speed of transition
     }
 
     public void ToggleEndMenu(float score)
     {
-        gameObject.SetActive(true);
-        scoreText.text = ((int)score).ToString();
-        isShown = true;
+        gameObject.SetActive(true); 
+        scoreText.text = ((int)score).ToString(); // display the score
+        isShown = true; // display the death menu
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // restart button will restart the game scene
     }
 
     public void ToMenu()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Menu"); // menu button will take you to the menu scene
     }
 }

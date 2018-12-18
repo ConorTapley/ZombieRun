@@ -15,17 +15,14 @@ public class score : MonoBehaviour {
 
     public TextMeshProUGUI scoreText;
     public DeathMenu deathMenu;
-	
-	void Start () {
-        
-	}
-	
-	
+
 	void Update () {
 
+        ///stop counting the score when the player dies
         if (m_isDead)
             return;
 
+        //every time you get 10 score
         if(m_score >= m_scoreToNextLevel)
         {
             LevelUp();
@@ -40,7 +37,7 @@ public class score : MonoBehaviour {
 
     void LevelUp()
     {
-        if (m_difficultyLevel == maxDifficultyLevel) // stop increasing difficulty at level 10;
+        if (m_difficultyLevel == maxDifficultyLevel) // stop increasing difficulty at level;
             return;
 
         m_scoreToNextLevel *= 2; // when your score = 10 difficulty increses, then 20, 40, 80 etc.
@@ -54,9 +51,10 @@ public class score : MonoBehaviour {
     {
         m_isDead = true;
 
+        //if a new highscore is set update it
         if(PlayerPrefs.GetFloat("Highscore") < m_score)
             PlayerPrefs.SetFloat("Highscore", m_score);
 
-        deathMenu.ToggleEndMenu(m_score);
+        deathMenu.ToggleEndMenu(m_score); // show death menu
     }
 }

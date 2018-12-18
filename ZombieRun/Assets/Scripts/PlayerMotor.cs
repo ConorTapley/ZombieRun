@@ -58,6 +58,7 @@ public class PlayerMotor : MonoBehaviour {
             roll = false;
         }
 
+        //stop the player moving when dead
         if (m_isDead)
             return;
 
@@ -77,9 +78,9 @@ public class PlayerMotor : MonoBehaviour {
             //jump
             if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space))
             {
-                ainm.SetBool("Jump", true);
-                m_verticalVelocity += jumpPower;
-                m_audioSource.PlayOneShot(jump, 1);
+                ainm.SetBool("Jump", true); //play jump animation
+                m_verticalVelocity += jumpPower; //elevate the players velocity
+                m_audioSource.PlayOneShot(jump, 1); //play jump sound
                 //Debug.Log("Jump");
             }
             else
@@ -93,12 +94,12 @@ public class PlayerMotor : MonoBehaviour {
                 rollingTimer += rollingTime;
                 roll = true;
 
-                Crawl();
-                m_audioSource.PlayOneShot(slide, 1);
+                Crawl(); ////play roll animation
+                m_audioSource.PlayOneShot(slide, 1); //play rolling sound
             }
             else
             {
-                ainm.SetBool("Crawl", false);
+                ainm.SetBool("Crawl", false); //have the roll animation false while not rolling
             }
 
         }
@@ -162,7 +163,7 @@ public class PlayerMotor : MonoBehaviour {
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.collider.CompareTag("Death"))
+        if(hit.collider.CompareTag("Death")) // if the player collides with a collider tagged as death
         {
             Death();
         }

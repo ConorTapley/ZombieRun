@@ -9,17 +9,18 @@ public class MainMenu : MonoBehaviour {
     public Text highScoreText;
 
     void Start () {
+        //////////display the highscore/////////
         highScoreText.text = "Highscore : " + ((int)PlayerPrefs.GetFloat("Highscore")).ToString();
 	}
 	
 
     public void ToGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Game"); //load the game scene
     }
 
     public void QuitGame()
     {
-        Application.Quit();
+        Application.Quit(); //exit the game
     }
 }

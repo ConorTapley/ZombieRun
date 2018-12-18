@@ -24,18 +24,20 @@ public class CameraFollow : MonoBehaviour {
         m_moveVector = m_lookAt.position + m_startOffset;
 
         //X
-        m_moveVector.x = 0;
+        m_moveVector.x = 0; //camera is stationary on the x axis
 
         //Y
-        m_moveVector.y = Mathf.Clamp(m_moveVector.y, 60, 70);
+        m_moveVector.y = Mathf.Clamp(m_moveVector.y, 60, 70);//camera will only move a certain amount in the y axis
 
+        //when the start camera animation is done
         if(m_transition > 1.0f)
         {
+            //follow the player
             transform.position = m_moveVector;
         }
         else
         {
-            //Start Animation
+            //Start Animation for the camera 
             transform.position = Vector3.Lerp(m_moveVector + m_animationOffSet, m_moveVector, m_transition);
             m_transition += Time.deltaTime * 1 / m_animationDuration;
         }
