@@ -9,7 +9,7 @@ public class score : MonoBehaviour {
     private float m_score = 0.0f;
 
     private int m_difficultyLevel = 1;
-    private int m_maxDifficultyLevel = 10;
+    public int maxDifficultyLevel = 30;
     private int m_scoreToNextLevel = 10;
     private bool m_isDead = false;
 
@@ -40,7 +40,7 @@ public class score : MonoBehaviour {
 
     void LevelUp()
     {
-        if (m_difficultyLevel == m_maxDifficultyLevel) // stop increasing difficulty at level 10;
+        if (m_difficultyLevel == maxDifficultyLevel) // stop increasing difficulty at level 10;
             return;
 
         m_scoreToNextLevel *= 2; // when your score = 10 difficulty increses, then 20, 40, 80 etc.

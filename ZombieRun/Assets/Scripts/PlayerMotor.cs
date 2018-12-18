@@ -44,10 +44,9 @@ public class PlayerMotor : MonoBehaviour {
 
 	
 	void Update () {
-
+        
+        //Debug.Log(roll);
         //rolling timer
-        Debug.Log(roll);
-
         if (roll && rollingTimer > 0)
         {
             rollingTimer -= Time.deltaTime;
@@ -58,11 +57,6 @@ public class PlayerMotor : MonoBehaviour {
             rollingTimer = 0;
             roll = false;
         }
-
-        
-
-
-
 
         if (m_isDead)
             return;
@@ -81,7 +75,7 @@ public class PlayerMotor : MonoBehaviour {
             m_verticalVelocity = -0.5f;
 
             //jump
-            if(Input.GetKey(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space))
             {
                 ainm.SetBool("Jump", true);
                 m_verticalVelocity += jumpPower;

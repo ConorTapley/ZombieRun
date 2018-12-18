@@ -6,7 +6,6 @@ public class tileManager : MonoBehaviour {
 
     public GameObject[] tilePrefabs;
 
-    private bool m_grounded;
     private Transform m_playerTransform;
     private float m_spawnZ = -324.0f;
     private float m_tileLength = 324.0f;
