@@ -79,7 +79,7 @@ public class PlayerMotor : MonoBehaviour {
             {
                 ainm.SetBool("Jump", true);
                 m_verticalVelocity += jumpPower;
-                //m_audioSource.PlayOneShot(jump, 1);
+                m_audioSource.PlayOneShot(jump, 1);
                 //Debug.Log("Jump");
             }
             else
@@ -94,7 +94,7 @@ public class PlayerMotor : MonoBehaviour {
                 roll = true;
 
                 Crawl();
-                //m_audioSource.PlayOneShot(slide, 1);
+                m_audioSource.PlayOneShot(slide, 1);
             }
             else
             {
